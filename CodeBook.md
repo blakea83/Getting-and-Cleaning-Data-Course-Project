@@ -21,24 +21,18 @@ THe vectors x1 and x2 used the vector that did not have ID or activity in them. 
 in x3.
 The first and second locations were added to x3 so that the activity and ID columns will not be deleted.
 a table meanstd was created using x3 to contain only the column's with mean and std were used.
-an arrayy activity was created that read in the activity lables from the data set.  
+an array activity was created that read in the activity lables from the data set.  
 The row names were removed from activity and the vector was made into a character vector activity.
 Created a vector b1 that was a character vector of the activity numbers from combinedx column 2.
 b2 was created from b1; the activity numbers were converted to activity descriptions.
 b2 replaced the column 2 in meanstd.
-the average of each column for each activity of each subject d1  was found.
+the average of each column for each activity of each subject, d1,  was found.
 d1 was exported as a text file and placed in the grading folder.
 
 
 
-The features text file was read in as a table.  The column names were turned into a vector with a label vector.  The 
-Identity and activity columns labels were added to the front of the label character vector.
 
 
-the identity and activity columns. Next, only columns with mean, std, activity, and ID were extracted from the data table into
-a mean table. The activity label text file was read into an activities table. 
-The numbers in the activity column were converted to activity labels using the activities table.  
-Generated the average of each column for each activity. Sent the final data out as a text file.
 
 
 The original experiment is described below.
