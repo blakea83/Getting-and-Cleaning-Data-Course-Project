@@ -1,5 +1,51 @@
-This is the Codebook for Getting and Cleaning Data Course Project.  The original experiment is described below.  The data being
-examined is unitless because it has been normalized.
+This is the Codebook for Getting and Cleaning Data Course Project.    The data being examined is unitless because it has been normalized.
+
+
+The zip file of the samsung motion data was downloaded from
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+The downloaded file as unzipped.  
+
+The trainx (training data), trainactivity (subject activity), trainID (training subjects),
+testx (test data), testID (test subject ID) ,and testactivity (subject activity text files were read in as a tables.
+The test tables (testx,testID, and testactivity) were merged to testx  The training tables (trainx, trainID, and trainactivity) were merged into trainx.
+Next, the trainx and testx were merged into combinedx.
+The lables were read from features.txt to a.
+The columns names only were selected and sent to a1. a1 was forced to a character vector
+A vector with ID and activity were created a2
+a vector of a2 and a1 were created a3 which contained all the column names for the data set.
+Combinedx's columns were named using a3.
+A vector x1 was created with all the vector locations that had mean in them.
+A vector x2 was created with the vector location that had std in them.
+The vectors of the column locations x1 and x2 were combined to a new vector x3
+THe vectors x1 and x2 used the vector that did not have ID or activity in them. So 2 was added to all the vector location
+in x3.
+The first and second locations were added to x3 so that the activity and ID columns will not be deleted.
+a table meanstd was created using x3 to contain only the column's with mean and std were used.
+an arrayy activity was created that read in the activity lables from the data set.  
+The row names were removed from activity and the vector was made into a character vector activity.
+Created a vector b1 that was a character vector of the activity numbers from combinedx column 2.
+b2 was created from b1; the activity numbers were converted to activity descriptions.
+b2 replaced the column 2 in meanstd.
+the average of each column for each activity of each subject d1  was found.
+d1 was exported as a text file and placed in the grading folder.
+
+
+
+The features text file was read in as a table.  The column names were turned into a vector with a label vector.  The 
+Identity and activity columns labels were added to the front of the label character vector.
+
+
+the identity and activity columns. Next, only columns with mean, std, activity, and ID were extracted from the data table into
+a mean table. The activity label text file was read into an activities table. 
+The numbers in the activity column were converted to activity labels using the activities table.  
+Generated the average of each column for each activity. Sent the final data out as a text file.
+
+
+The original experiment is described below.
+
+
+
+
 
 Data Set Information:
 
@@ -95,15 +141,4 @@ Jorge L. Reyes-Ortiz, Alessandro Ghio, Luca Oneto, Davide Anguita. November 2012
 
 ==============================================================================================================================
 
-The remaining portion of this readme describes the work done on this dataset per the course project guidelines
 
-The zip file of the samsung motion data was downloaded from
-https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
-The downloaded file as unzipped.  The x_train (training data), y_train (subject activity),subject_train (training subjects),
-x_test (test data), subject_test (test subject ID) ,and y_test (subject activity text files were read in as a tables.
-The test tables were merged in a test table: x,y, subject.  The training tables were merged into a training table: x,y, subject.  
-Next, the test and training tables were merged into a data table. The features text file was turned into a vector with  data labels including 
-the identity and activity columns. Next, only columns with mean, std, activity, and ID were extracted from the data table into
-a mean table. The activity label text file was read into an activities table. 
-The numbers in the activity column were converted to activity labels using the activities table.  
-Generated the average of each column for each activity. Sent the final data out as a text file.
