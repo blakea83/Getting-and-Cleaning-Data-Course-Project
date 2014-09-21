@@ -43,7 +43,7 @@ The repo for the John Hopkins Cleaning Data
     trainx<-cbind(trainID,trainactivity,trainx)
 
 
-8)	Merge the data test
+8)	Merge the data test (satisfies step 1)
 
     combinedx<-rbind(testx,trainx)
     
@@ -67,7 +67,7 @@ The repo for the John Hopkins Cleaning Data
 
     a3<-c(a2,a1)
     
-15)	Relabeled the extracted mean and std data frame
+15)	Relabeled the extracted mean and std data frame.  This is where step 4 is completed labeling with descriptive variable names.  It is done a bit out of order.  
 
     colnames(combinedx)<-a3
 
@@ -91,7 +91,7 @@ The repo for the John Hopkins Cleaning Data
 
     x6<-c(1,2,x5)
 
-20) Extracting the columns with mean, std, ID, and activity from the larger data frame
+20) Extracting the columns with mean, std, ID, and activity from the larger data frame (satisfies step 2)
 
     meanstd<-combinedx[,x6]
 
@@ -117,16 +117,18 @@ The repo for the John Hopkins Cleaning Data
 
     b2<-revalue(b1,c("1"=activity[1],"2"=activity[2],"3"=activity[3],"4"=activity[4],"5"=activity[5],"6"=activity[6]))
 
-26) Replacing the activities column in the data frame with the new column in labels. 
+26) Replacing the activities column in the data frame with the new column in labels. This satisfies step 3 where
+activities that were originally numbers were converted to a descriptive name. 
 
     meanstd[,2]=b2
 
 
-31) Generating the average of each column for each activity of each subject
+31) Generating the average of each column for each activity of each subject.  This satisfies step 4.
 
     d1<-ddply(meanstd,.(ID,Activity),numcolwise(mean))
   
-32) write the tidy data table to a txt file with no row names
+32) write the tidy data table to a txt file with no row names.  The data is tidy because each observation is in 
+a row  and each variable is in a column  
 
   write.table(d1,file="data.txt",sep=",",row.names=FALSE)
     
